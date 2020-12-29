@@ -5,7 +5,7 @@ A user takes a picture and gets a result whether:
 - it is a hotdog 🌭 or 
 - not a hotdog 😖
 
-## Skills that were developed
+## Skills that were developed:
 
 * Adapting CoreML
 * Adapting Vision 
