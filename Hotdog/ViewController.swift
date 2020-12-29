@@ -36,7 +36,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { fatalError("Loading CoreML model failed") }
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let results = request.results as? [VNClassificationObservation] else { fatalError("Could not convert results") }
-            print(results)
+            if let firstResult = results.first {
+                if firstResult.identifier.contains("hotdog") {
+                    self.navigationItem.title = "Hotdog!"
+                } else {
+                    self.navigationItem.title = "Not a hotdog!"
+                }
+            }
         }
         let handler = VNImageRequestHandler(ciImage: image)
         do {
